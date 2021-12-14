@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-          Guess The NUmber 
+          Guess The Number 
         </title>
     </head>
     <body>
@@ -13,6 +13,8 @@
                 let gotIt = false;
                 let guess = prompt ("Guess a number between 1 and 10 ");
                 let counter = 0;
+                let feedback = "";  
+                let times = "times";
                
                         /*
                         To incriment counter you can do this: 
@@ -29,11 +31,22 @@
                         */
 
                 while (gotIt == false){
+                    counter++;
                 if(num == guess){
-                    alert("You got it!");
+                    //alert("You got it!");
+                   if(counter == 1){
+                       times = "time";
+                }
+                    feedback = `The correct number was ${num} and you guessed ${counter} ${times}!`;
+
+                    alert(feedback);
                     gotIt = true;
+                }else if (num > guess){//higher
+                    guess = prompt("That was too low. Please guess again.")
+                }else if (num < guess){//lower
+                    guess = prompt("That was too high. Please guess again.")
                 }else{
-                    guess = prompt ("That was incorrect. Guess again.");
+                    guess = prompt ("That was incorrect. Please guess again.");
                 }
                 }
 
